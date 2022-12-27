@@ -1,9 +1,10 @@
 package Model;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 
 
-public class Job {
+public class Job implements Serializable{
 	
 	private String jobName;					// Name of job that needs to be worked on 
 	private final int mileagInterval;		// miles needed until job needs to be preformed
@@ -11,7 +12,7 @@ public class Job {
 	private LocalDate LastPreformedDate;	// Date that the job was last preformed
 	private LocalDate ExpectedDatetoPreform; // Date that the next job is expected to be completed
 	private int lastPreformedMiles;			// Mileage since last Repair was completed
-	private RepairType jobEnum; 			// Type of job that need to be preformed
+	private final RepairType jobEnum; 			// Type of job that need to be preformed
 	private RepairReason repairReason;		// trigger for repair (Miles, time, both, Neither)
 	private boolean needMaintenance;		// Trigger check to see if matinence is required
 
@@ -31,6 +32,13 @@ public class Job {
 	
 	public LocalDate calcExpectedDate() {
 		return LastPreformedDate.plusMonths(monthTimeInterval);
+	}
+	
+	public void jobCompleted(LocalDate lastPreformed, int lastPreformedMiles) {
+		this.LastPreformedDate = lastPreformed;
+		this.lastPreformedMiles= lastPreformedMiles;
+		this.ExpectedDatetoPreform = calcExpectedDate();
+		calcMaintenance(lastPreformedMiles, lastPreformed);
 	}
 	
 	

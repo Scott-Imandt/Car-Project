@@ -1,10 +1,11 @@
 package Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 
-public class Car {
+public class Car implements Serializable{
 	
 	private String carName;
 	private int currentMileage;
