@@ -26,8 +26,7 @@ public class Job implements Serializable{
 		this.LastPreformedDate = lastPreformed;
 		this.lastPreformedMiles= lastPreformedMiles;
 		this.ExpectedDatetoPreform = calcExpectedDate();
-		this.jobEnum = jobEnum;
-		//Call calcMatinence 
+		this.jobEnum = jobEnum; 
 	}
 	
 	public LocalDate calcExpectedDate() {

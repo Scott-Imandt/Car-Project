@@ -2,7 +2,6 @@ package Model;
 
 import java.time.LocalDate;
 
-
 public class Main {
 	
 	public static Car_Storage carDB = null;
@@ -13,14 +12,27 @@ public class Main {
 		
 		sf = Save_File.loadData();
 		carDB = sf.getStoredData();
-				
+		selectedCar = carDB.getCar(0);
+		
 		LocalDate ld1 = LocalDate.of(2022, 1, 16);
-		LocalDate ld2 = LocalDate.of(2020, 2, 16);
+		//LocalDate ld2 = LocalDate.of(2020, 2, 16);
+		
+		selectedCar.addJob("Spark Plugs", 75000, 120, ld1, 0, RepairType.REPLACE);
+	
+ 		PrintRecipt Pr = new PrintRecipt(selectedCar);
+ 		
+ 		Pr.PrintToFile();
+       
+		
+		
+				
+		//LocalDate ld1 = LocalDate.of(2022, 1, 16);
+		//LocalDate ld2 = LocalDate.of(2020, 2, 16);
 		
 		
 		//carDB.createCar("Mazda 6", 84000);
 		
-		selectedCar = carDB.getCar(0);
+		
 		
 		//selectedCar.setCarName("Mazda 3");
 	
@@ -33,7 +45,7 @@ public class Main {
 //		Car1.UpdateJobs(LocalDate.now());
 		
 //		System.out.println(carDB.getCar(0).equals(selectedCar));
-		System.out.println(selectedCar);
+		//System.out.println(selectedCar);
 		
 		
 		
