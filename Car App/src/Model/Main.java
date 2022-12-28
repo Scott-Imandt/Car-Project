@@ -12,45 +12,35 @@ public class Main {
 		
 		sf = Save_File.loadData();
 		carDB = sf.getStoredData();
-		selectedCar = carDB.getCar(0);
 		
-		LocalDate ld1 = LocalDate.of(2022, 1, 16);
+		selectedCar = carDB.getCar(0);
+				
+		LocalDate ld1 = LocalDate.of(2020, 1, 16);
 		//LocalDate ld2 = LocalDate.of(2020, 2, 16);
 		
-		selectedCar.addJob("Spark Plugs", 75000, 120, ld1, 0, RepairType.REPLACE);
+		//selectedCar.addJob("Spark Plugs", 75000, 120, ld1, 0, RepairType.REPLACE);
+		
+		//selectedCar.UpdateJobs(LocalDate.now(), 90000);
+		
+		//selectedCar.jobCompleted(1, ld1, 90000);
+		
+		//selectedCar.UpdateJobs(LocalDate.now(), 90000);
+		
+		selectedCar.jobCompleted(0, ld1, 81000);
 	
  		PrintRecipt Pr = new PrintRecipt(selectedCar);
  		
  		Pr.PrintToFile();
-       
-		
-		
-				
-		//LocalDate ld1 = LocalDate.of(2022, 1, 16);
-		//LocalDate ld2 = LocalDate.of(2020, 2, 16);
-		
-		
+
 		//carDB.createCar("Mazda 6", 84000);
-		
-		
-		
-		//selectedCar.setCarName("Mazda 3");
-	
+		//selectedCar = carDB.getCar(0);
+
 		//selectedCar.addJob("Oil Change", 10000, 12, ld1, 70000, RepairType.REPLACE);
-		//selectedCar.addJob("Brake Fluid", 60000, 36, ld2, 80000, RepairType.REPLACE);
-//		
-		//selectedCar.getJobs().get(0).calcMaintenance(90000, LocalDate.now());
-		//selectedCar.getJobs().get(0).jobCompleted(LocalDate.now(), 90000);
-		
-//		Car1.UpdateJobs(LocalDate.now());
-		
-//		System.out.println(carDB.getCar(0).equals(selectedCar));
-		//System.out.println(selectedCar);
-		
-		
+		//selectedCar.addJob("Brake Fluid", 60000, 36, ld1, 80000, RepairType.REPLACE);		
+				
 		
 		sf.setStoredData(carDB);
-		sf.saveData(sf);
+		Save_File.saveData(sf);
 	}
 
 }

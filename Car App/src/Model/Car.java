@@ -3,6 +3,8 @@ package Model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.TreeMap;
 
 
 public class Car implements Serializable{
@@ -10,11 +12,13 @@ public class Car implements Serializable{
 	private String carName;
 	private int currentMileage;
 	private ArrayList<Job> jobs;
+	private TreeMap<LocalDate, CompletedJob> cJobs;
 	
 	public Car(String carName, int miles) {
 		this.carName = carName;
 		this.currentMileage = miles;
-		jobs = new ArrayList<Job>(); 
+		jobs = new ArrayList<Job>();
+		cJobs = new TreeMap<LocalDate, CompletedJob>(Collections.reverseOrder());
 	}
 	
 	public boolean addJob(String jobName, int mileageInterval, int monthTimeInterval, LocalDate lastPreformed,  int LastPreformedMiles, RepairType jobEnum) {
@@ -31,9 +35,12 @@ public class Car implements Serializable{
 		return true;
 	}
 	
-	public void UpdateJobs(LocalDate UpdatedDate) {
+	public void UpdateJobs(LocalDate UpdatedDate, int newMileage) {
 		
-		// loop through the array for each car job
+		// sets new mileage then checks all jobs with updated information
+		
+		setCurrentMileage(newMileage);
+		
 		for(Job j : jobs) {
 			
 			j.calcMaintenance(currentMileage, UpdatedDate);
@@ -41,7 +48,20 @@ public class Car implements Serializable{
 		}
 		
 	}
-
+	
+	public void jobCompleted(int jobIndex, LocalDate lastPreformed, int lastPreformedMiles) {
+		this.jobs.get(jobIndex).jobCompleted(lastPreformed, lastPreformedMiles);
+		CompletedJob cj = new CompletedJob(this.jobs.get(jobIndex).getName(),lastPreformed, lastPreformedMiles);
+		cJobs.put(lastPreformed, cj);
+	}
+	
+	public void jobCompleted(int jobIndex, LocalDate lastPreformed, int lastPreformedMiles, String productName, String productLink) {
+		this.jobs.get(jobIndex).jobCompleted(lastPreformed, lastPreformedMiles);
+		CompletedJob cj = new CompletedJob(this.jobs.get(jobIndex).getName(),lastPreformed, lastPreformedMiles, productName, productLink);
+		cJobs.put(lastPreformed, cj);
+	}
+	
+	
 	public String getCarName() {
 		return carName;
 	}
@@ -64,6 +84,10 @@ public class Car implements Serializable{
 
 	public void setJobs(ArrayList<Job> jobs) {
 		this.jobs = jobs;
+	}
+	
+	public TreeMap<LocalDate, CompletedJob> getCompletedJobs() {
+		return cJobs;
 	}
 	
 	@Override

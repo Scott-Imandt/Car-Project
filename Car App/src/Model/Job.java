@@ -26,7 +26,7 @@ public class Job implements Serializable{
 		this.LastPreformedDate = lastPreformed;
 		this.lastPreformedMiles= lastPreformedMiles;
 		this.ExpectedDatetoPreform = calcExpectedDate();
-		this.jobEnum = jobEnum; 
+		this.jobEnum = jobEnum;
 	}
 	
 	public LocalDate calcExpectedDate() {
@@ -37,10 +37,10 @@ public class Job implements Serializable{
 		this.LastPreformedDate = lastPreformed;
 		this.lastPreformedMiles= lastPreformedMiles;
 		this.ExpectedDatetoPreform = calcExpectedDate();
-		calcMaintenance(lastPreformedMiles, lastPreformed);
+		calcMaintenance(lastPreformedMiles, lastPreformed);		
 	}
 	
-	
+		
 	public void calcMaintenance(int newMileage, LocalDate UpdatedTime) {
 		//PROB NEED TO CHANGE
 		repairReason = RepairReason.NO_REPAIR; // set repair reason to no Repair
@@ -65,6 +65,10 @@ public class Job implements Serializable{
 			}
 		}
 		
+	}
+	
+	public String getName() {
+		return jobName;
 	}
 	
 	@Override
