@@ -58,7 +58,7 @@ public class Main extends Application{
 		
 		Scene scene = new Scene(root);
 		
-		stage.setTitle("Car go Vroom VroomS");
+		stage.setTitle("Car Tracker");
 		stage.setScene(scene);
 		stage.show(); // shows the window and start the app
 	

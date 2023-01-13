@@ -1,8 +1,15 @@
 package Controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import Model.Main;
@@ -70,5 +77,23 @@ public class DashBoard extends Main{
 		}
 
 	}
+	
+	
+	@FXML public void switchToCreateCarScene(ActionEvent event) {
+	
+		try {
+			Parent createCarView = FXMLLoader.load(getClass().getResource("../View/CreateCar.fxml"));
+			Scene createCarScene = new Scene(createCarView);
+			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+			
+			window.setScene(createCarScene);
+			window.show();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 }

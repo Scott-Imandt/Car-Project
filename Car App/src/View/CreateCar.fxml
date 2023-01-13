@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CreateCar">
+   <center>
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="567.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="335.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="515.0" minWidth="10.0" prefWidth="434.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="54.0" prefWidth="397.0" text="Car Name: " textAlignment="CENTER">
+               <font>
+                  <Font name="Autumn Regular" size="42.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="54.0" prefWidth="402.0" text="Car Milage: " textAlignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Autumn Regular" size="42.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textfield_Name" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="58.0" prefWidth="314.0" promptText="Name" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Autumn Regular" size="30.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="textfield_Miles" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="314.0" promptText="Miles" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Autumn Regular" size="30.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btn_Submit" mnemonicParsing="false" onAction="#CreateCarAction" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Autumn Regular" size="30.0" />
+               </font>
+            </Button>
+            <Label fx:id="label_ErrorMessage" alignment="CENTER" prefHeight="74.0" prefWidth="233.0" text="Please check to ensure that the fields are filled correctly" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Autumn Regular" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="171.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="414.0" layoutY="55.0" text="Add Your Car" textAlignment="CENTER" underline="true">
+               <font>
+                  <Font name="Autumn Regular" size="72.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.03333333507180214" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Button fx:id="btn_BackToDashboard" layoutX="130.0" layoutY="83.0" mnemonicParsing="false" onAction="#switchToDashboard" text="Back to Dashboard">
+               <font>
+                  <Font name="Autumn Regular" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
