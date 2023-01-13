@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 	
-	public static Car_Storage carDB = null;
+	protected static Car_Storage carDB = null;
 	public static Car selectedCar = null;
 	public static Save_File sf; 
 
@@ -44,6 +44,7 @@ public class Main extends Application{
 		//selectedCar.addJob("Oil Change", 10000, 12, ld1, 70000, RepairType.REPLACE);
 		//selectedCar.addJob("Brake Fluid", 60000, 36, ld1, 80000, RepairType.REPLACE);		
 				
+		//carDB.createCar("Mazda 3", 16000);
 		
 		launch(args);
 	}
