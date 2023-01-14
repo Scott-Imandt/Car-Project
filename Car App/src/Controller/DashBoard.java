@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -92,6 +93,36 @@ public class DashBoard extends Main{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	// selectors for cars NEED TO CHANGE
+	
+	@FXML public void CarSelected(MouseEvent event) {
+		
+		if(Label_CarName1.isVisible()) {
+			
+			selectedCar = carDB.getCar(0);
+			
+			
+			// go to car Screens
+			try {
+				Parent carOverviewView = FXMLLoader.load(getClass().getResource("../View/CarOverview.fxml"));
+				Scene carOverviewScene = new Scene(carOverviewView);
+				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+				
+				window.setScene(carOverviewScene);
+				window.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
+		return;
+		
 	}
 	
 	

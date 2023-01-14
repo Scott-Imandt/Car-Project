@@ -21,7 +21,7 @@ public class Main extends Application{
 		
 		//selectedCar = carDB.getCar(0);
 				
-		//LocalDate ld1 = LocalDate.of(2020, 1, 16);
+		LocalDate ld1 = LocalDate.of(2020, 1, 16);
 		//LocalDate ld2 = LocalDate.of(2020, 2, 16);
 		
 		//selectedCar.addJob("Spark Plugs", 75000, 120, ld1, 0, RepairType.REPLACE);

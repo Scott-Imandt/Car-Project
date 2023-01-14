@@ -1,6 +1,7 @@
 package Model;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 
@@ -12,7 +13,7 @@ public class Job implements Serializable{
 	private LocalDate LastPreformedDate;	// Date that the job was last preformed
 	private LocalDate ExpectedDatetoPreform; // Date that the next job is expected to be completed
 	private int lastPreformedMiles;			// Mileage since last Repair was completed
-	private final RepairType jobEnum; 			// Type of job that need to be preformed
+	private final RepairType jobEnum; 		// Type of job that need to be preformed
 	private RepairReason repairReason;		// trigger for repair (Miles, time, both, Neither)
 	private boolean needMaintenance;		// Trigger check to see if matinence is required
 
@@ -67,8 +68,49 @@ public class Job implements Serializable{
 		
 	}
 	
-	public String getName() {
+	public String getJobName() {
 		return jobName;
+	}
+	
+	public int getMileagInterval() {
+		return mileagInterval;
+	}
+	
+	public int getMonthTimeInterval() {
+		return monthTimeInterval;
+	}
+	
+	public String getLastPreformedDate() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		return LastPreformedDate.format(formatter);
+	}
+	
+	public String getExpectedDatetoPreform() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		return ExpectedDatetoPreform.format(formatter);
+	}
+	
+	public String getExpectedMiles() {
+		return String.valueOf(lastPreformedMiles+mileagInterval);
+	}
+	
+	public String getLastPreformedMiles() {
+		return String.valueOf(lastPreformedMiles);
+	}
+	
+	public String getJobEnum() {
+		return jobEnum.toString();
+	}
+	
+	public String getRepairReason() {
+		if(repairReason == null) {
+			return "None";
+		}
+		return repairReason.toString();
+	}
+	
+	public String getNeedMaintence() {
+		return String.valueOf(needMaintenance);
 	}
 	
 	@Override

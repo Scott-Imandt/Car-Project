@@ -51,13 +51,13 @@ public class Car implements Serializable{
 	
 	public void jobCompleted(int jobIndex, LocalDate lastPreformed, int lastPreformedMiles) {
 		this.jobs.get(jobIndex).jobCompleted(lastPreformed, lastPreformedMiles);
-		CompletedJob cj = new CompletedJob(this.jobs.get(jobIndex).getName(),lastPreformed, lastPreformedMiles);
+		CompletedJob cj = new CompletedJob(this.jobs.get(jobIndex).getJobName(),lastPreformed, lastPreformedMiles);
 		cJobs.put(lastPreformed, cj);
 	}
 	
 	public void jobCompleted(int jobIndex, LocalDate lastPreformed, int lastPreformedMiles, String productName, String productLink) {
 		this.jobs.get(jobIndex).jobCompleted(lastPreformed, lastPreformedMiles);
-		CompletedJob cj = new CompletedJob(this.jobs.get(jobIndex).getName(),lastPreformed, lastPreformedMiles, productName, productLink);
+		CompletedJob cj = new CompletedJob(this.jobs.get(jobIndex).getJobName(),lastPreformed, lastPreformedMiles, productName, productLink);
 		cJobs.put(lastPreformed, cj);
 	}
 	
