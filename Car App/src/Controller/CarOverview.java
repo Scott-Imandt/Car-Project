@@ -2,11 +2,14 @@ package Controller;
 
 import Model.Job;
 import Model.Main;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.skin.MenuButtonSkin;
 
 public class CarOverview extends Main{
 	
@@ -23,6 +26,17 @@ public class CarOverview extends Main{
 	@FXML TableColumn<Job, String> col_RepairReason = new TableColumn<Job, String>("Repair Reason");
 	@FXML TableColumn<Job, String> col_Maintenence = new TableColumn<Job, String>("Maintence Needed");
 	
+	@FXML MenuButtonSkin filter;
+	@FXML RadioMenuItem Radio_JobName;
+	@FXML RadioMenuItem Radio_MilesInterval;
+	@FXML RadioMenuItem Radio_MonthInt;
+	@FXML RadioMenuItem Radio_ExpectedDate;
+	@FXML RadioMenuItem Radio_ExpectedMiles;
+	@FXML RadioMenuItem Radio_PrevMiles;
+	@FXML RadioMenuItem Radio_RepairReason;
+	@FXML RadioMenuItem Radio_Needed;
+	@FXML RadioMenuItem Radio_JobType;
+	
 	
 	
 	@FXML public void initialize() {
@@ -38,19 +52,120 @@ public class CarOverview extends Main{
 		col_RepairReason.setCellValueFactory(new PropertyValueFactory<Job, String>("repairReason"));
 		col_Maintenence.setCellValueFactory(new PropertyValueFactory<Job, String>("needMaintence"));
 		
-		
+		// Default Items on list
 		tableview_CarJobs.getColumns().add(col_JobName);
-		tableview_CarJobs.getColumns().add(col_MilesInt);
-		tableview_CarJobs.getColumns().add(col_MonthInt);
+		Radio_JobName.setSelected(true);
 		tableview_CarJobs.getColumns().add(col_ExpectedDate);
+		Radio_ExpectedDate.setSelected(true);
 		tableview_CarJobs.getColumns().add(col_ExpectedMiles);
-		tableview_CarJobs.getColumns().add(col_LastMiles);
-		tableview_CarJobs.getColumns().add(col_JobType);
-		tableview_CarJobs.getColumns().add(col_RepairReason);
+		Radio_ExpectedMiles.setSelected(true);
 		tableview_CarJobs.getColumns().add(col_Maintenence);
+		Radio_Needed.setSelected(true);
+		
 		
 		tableview_CarJobs.autosize();
 		tableview_CarJobs.getItems().addAll(selectedCar.getJobs());
+		
+		
+	}
+	
+	@FXML public void JobNameFilter(ActionEvent event) {
+		
+		if(Radio_JobName.isSelected()) {			
+			tableview_CarJobs.getColumns().add(col_JobName);
+		}
+		else {
+			tableview_CarJobs.getColumns().remove(col_JobName);
+		}
+		
+	}
+	
+	@FXML public void MilesIntervalFilter(ActionEvent event) {
+		
+		if(Radio_MilesInterval.isSelected()) {			
+			tableview_CarJobs.getColumns().add(col_MilesInt);
+		}
+		else {
+			tableview_CarJobs.getColumns().remove(col_MilesInt);
+		}
+		
+	}
+
+	@FXML public void MonthIntervalFilter(ActionEvent event) {
+		
+		if(Radio_MonthInt.isSelected()) {			
+			tableview_CarJobs.getColumns().add(col_MonthInt);
+		}
+		else {
+			tableview_CarJobs.getColumns().remove(col_MonthInt);
+		}
+		
+	}	
+	
+	@FXML public void ExpectedDateFilter(ActionEvent event) {
+		
+		if(Radio_ExpectedDate.isSelected()) {			
+			tableview_CarJobs.getColumns().add(col_ExpectedDate);
+		}
+		else {
+			tableview_CarJobs.getColumns().remove(col_ExpectedDate);
+		}
+		
+	}	
+	
+	@FXML public void ExpectedMilesFilter(ActionEvent event) {
+		
+		if(Radio_ExpectedMiles.isSelected()) {			
+			tableview_CarJobs.getColumns().add(col_ExpectedMiles);
+		}
+		else {
+			tableview_CarJobs.getColumns().remove(col_ExpectedMiles);
+		}
+		
+	}
+
+	@FXML public void PrevMilesFilter(ActionEvent event) {
+		
+		if(Radio_PrevMiles.isSelected()) {			
+			tableview_CarJobs.getColumns().add(col_LastMiles);
+		}
+		else {
+			tableview_CarJobs.getColumns().remove(col_LastMiles);
+		}
+		
+	}
+	
+	@FXML public void RepairReasonFilter(ActionEvent event) {
+		
+		if(Radio_RepairReason.isSelected()) {			
+			tableview_CarJobs.getColumns().add(col_RepairReason);
+		}
+		else {
+			tableview_CarJobs.getColumns().remove(col_RepairReason);
+		}
+		
+	}
+		
+	@FXML public void NeededFilter(ActionEvent event) {
+		
+		if(Radio_Needed.isSelected()) {			
+			tableview_CarJobs.getColumns().add(col_Maintenence);
+		}
+		else {
+			tableview_CarJobs.getColumns().remove(col_Maintenence);
+		}
+		
+	}
+	
+	@FXML public void JobTypeFilter(ActionEvent event) {
+		
+		if(Radio_JobType.isSelected()) {			
+			tableview_CarJobs.getColumns().add(col_JobType);
+		}
+		else {
+			tableview_CarJobs.getColumns().remove(col_JobType);
+		}
+		
 	}
 
 }

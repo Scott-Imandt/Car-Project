@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableView?>
@@ -11,7 +14,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="Controller.CarOverview">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CarOverview">
   <tabs>
     <Tab text="Overview">
          <content>
@@ -46,6 +49,39 @@
                      </textFill>
                   </Label>
                </top>
+               <right>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <MenuButton fx:id="MenuButton_Filter" layoutX="62.0" layoutY="68.0" mnemonicParsing="false" text="Filter">
+                          <items>
+                              <RadioMenuItem fx:id="Radio_JobName" mnemonicParsing="false" onAction="#JobNameFilter" text="Job Name" />
+                              <RadioMenuItem fx:id="Radio_MilesInterval" mnemonicParsing="false" onAction="#MilesIntervalFilter" text="MIles Interval" />
+                              <RadioMenuItem fx:id="Radio_MonthInt" mnemonicParsing="false" onAction="#MonthIntervalFilter" text="Month Interval" />
+                              <RadioMenuItem fx:id="Radio_ExpectedDate" mnemonicParsing="false" onAction="#ExpectedDateFilter" text="Expected Date" />
+                              <RadioMenuItem fx:id="Radio_ExpectedMiles" mnemonicParsing="false" onAction="#ExpectedMilesFilter" text="Expected Miles" />
+                              <RadioMenuItem fx:id="Radio_PrevMiles" mnemonicParsing="false" onAction="#PrevMilesFilter" text="Previous Miles" />
+                              <RadioMenuItem fx:id="Radio_RepairReason" mnemonicParsing="false" onAction="#RepairReasonFilter" text="Repair Reason" />
+                              <RadioMenuItem fx:id="Radio_JobType" mnemonicParsing="false" onAction="#JobTypeFilter" text="Job Type" />
+                              <RadioMenuItem fx:id="Radio_Needed" mnemonicParsing="false" onAction="#NeededFilter" text="Maintence Needed" />
+                          </items>
+                           <font>
+                              <Font name="Autumn Regular" size="16.0" />
+                           </font>
+                        </MenuButton>
+                     </children>
+                  </AnchorPane>
+               </right>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button layoutX="74.0" layoutY="60.0" mnemonicParsing="false" text="Add Job">
+                           <font>
+                              <Font name="Autumn Regular" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </left>
             </BorderPane>
          </content>
     </Tab>
