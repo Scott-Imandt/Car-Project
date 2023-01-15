@@ -1,15 +1,22 @@
 package Controller;
 
+import java.io.IOException;
+
 import Model.Job;
 import Model.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.skin.MenuButtonSkin;
+import javafx.stage.Stage;
 
 public class CarOverview extends Main{
 	
@@ -37,7 +44,7 @@ public class CarOverview extends Main{
 	@FXML RadioMenuItem Radio_Needed;
 	@FXML RadioMenuItem Radio_JobType;
 	
-	
+	Job SelectedJob = null;
 	
 	@FXML public void initialize() {
 		
@@ -64,6 +71,7 @@ public class CarOverview extends Main{
 		
 		
 		tableview_CarJobs.autosize();
+				
 		tableview_CarJobs.getItems().addAll(selectedCar.getJobs());
 		
 		
@@ -166,6 +174,58 @@ public class CarOverview extends Main{
 			tableview_CarJobs.getColumns().remove(col_JobType);
 		}
 		
+	}
+	
+	@FXML public void AddJobsView(ActionEvent event) {
+		
+		try {
+			Parent AddJobView = FXMLLoader.load(getClass().getResource("../View/AddJob.fxml"));
+			Scene AddJobScene = new Scene(AddJobView);
+			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+			
+			window.setScene(AddJobScene);
+			window.show();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@FXML public void DeleteJob(ActionEvent event) {
+		
+		// Add Clause to show that nothing is selected
+		
+		SelectedJob = tableview_CarJobs.getSelectionModel().getSelectedItem();
+		
+		tableview_CarJobs.getItems().removeAll(selectedCar.getJobs());
+		
+		selectedCar.getJobs().remove(SelectedJob);
+		
+		tableview_CarJobs.getItems().addAll(selectedCar.getJobs());
+		
+		SelectedJob = null;
+	}
+	
+	@FXML public void CompletedJob(ActionEvent event) {
+		
+		SelectedJob = tableview_CarJobs.getSelectionModel().getSelectedItem();
+		
+		if(SelectedJob != null) {
+			
+			try {
+				Parent CompleteJobView = FXMLLoader.load(getClass().getResource("../View/CompleteJob.fxml"));
+				Scene CompleteJobScene = new Scene(CompleteJobView);
+				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+				
+				window.setScene(CompleteJobScene);
+				window.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
 	}
 
 }

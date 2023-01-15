@@ -52,7 +52,7 @@
                <right>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <MenuButton fx:id="MenuButton_Filter" layoutX="62.0" layoutY="68.0" mnemonicParsing="false" text="Filter">
+                        <MenuButton fx:id="MenuButton_Filter" layoutX="62.0" layoutY="35.0" mnemonicParsing="false" text="Filter">
                           <items>
                               <RadioMenuItem fx:id="Radio_JobName" mnemonicParsing="false" onAction="#JobNameFilter" text="Job Name" />
                               <RadioMenuItem fx:id="Radio_MilesInterval" mnemonicParsing="false" onAction="#MilesIntervalFilter" text="MIles Interval" />
@@ -74,7 +74,17 @@
                <left>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="74.0" layoutY="60.0" mnemonicParsing="false" text="Add Job">
+                        <Button layoutX="74.0" layoutY="60.0" mnemonicParsing="false" onAction="#AddJobsView" text="Add Job">
+                           <font>
+                              <Font name="Autumn Regular" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button_Delete" layoutX="67.0" layoutY="138.0" mnemonicParsing="false" onAction="#DeleteJob" text="Delete Job">
+                           <font>
+                              <Font name="Autumn Regular" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button_Completed" layoutX="53.0" layoutY="211.0" mnemonicParsing="false" onAction="#CompletedJob" text="Completed Job">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
