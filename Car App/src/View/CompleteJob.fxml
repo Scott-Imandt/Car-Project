@@ -65,12 +65,12 @@
                   <Font name="Autumn Regular" size="26.0" />
                </font>
             </Label>
-            <TextField fx:id="textfield_PreMIles" promptText="Mileage When Job was Completed" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="textfield_CompletedMiles" promptText="Mileage When Job was Completed" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font name="Autumn Regular" size="20.0" />
                </font>
             </TextField>
-            <DatePicker fx:id="datepicker_PreDate" prefHeight="31.0" prefWidth="384.0" promptText="MM/DD/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <DatePicker fx:id="datepicker_CompletedDate" prefHeight="31.0" prefWidth="384.0" promptText="MM/DD/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label fx:id="Label_Error" alignment="CENTER" prefHeight="17.0" prefWidth="236.0" text="Please Check Data Format" textAlignment="CENTER" textFill="RED" visible="false" GridPane.rowIndex="8">
                <font>
                   <Font name="Autumn Regular" size="20.0" />
@@ -87,32 +87,32 @@
                   <Font name="Autumn Regular" size="26.0" />
                </font>
             </Label>
-            <TextField fx:id="textfield_PreMIles1" promptText="Can Be Left Empty" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <TextField fx:id="textfield_ProductName" promptText="Can Be Left Empty" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
                   <Font name="Autumn Regular" size="20.0" />
                </font>
             </TextField>
-            <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Can Be Left Empty" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <TextArea fx:id="TextArea_ProductLink" prefHeight="200.0" prefWidth="200.0" promptText="Can Be Left Empty" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <font>
                   <Font name="Autumn Regular" size="12.0" />
                </font>
             </TextArea>
-            <Label fx:id="label_JobName" alignment="CENTER" prefHeight="17.0" prefWidth="331.0" text="Job Name: " GridPane.columnIndex="1">
+            <Label fx:id="label_JobName" alignment="CENTER" prefHeight="17.0" prefWidth="331.0" text="Name" GridPane.columnIndex="1">
                <font>
                   <Font name="Autumn Regular" size="26.0" />
                </font>
             </Label>
-            <Label fx:id="label_MileInt" alignment="CENTER" prefHeight="17.0" prefWidth="331.0" text="Job Name: " GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="label_MileInt" alignment="CENTER" prefHeight="17.0" prefWidth="331.0" text="Miles" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Autumn Regular" size="26.0" />
                </font>
             </Label>
-            <Label fx:id="label_MonthInt" alignment="CENTER" prefHeight="17.0" prefWidth="331.0" text="Job Name: " GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label fx:id="label_MonthInt" alignment="CENTER" prefHeight="17.0" prefWidth="331.0" text="Month" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Autumn Regular" size="26.0" />
                </font>
             </Label>
-            <Label fx:id="label_RepairType" alignment="CENTER" prefHeight="17.0" prefWidth="331.0" text="Job Name: " GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label fx:id="label_RepairType" alignment="CENTER" prefHeight="17.0" prefWidth="331.0" text="Repair" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Autumn Regular" size="26.0" />
                </font>
