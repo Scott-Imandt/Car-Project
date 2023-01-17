@@ -67,7 +67,7 @@ public class DashBoard extends Main{
 		carMilageList.add(Label_CarMilage18);
 		carMilageList.add(Label_CarMilage19);
 		
-		System.out.println(carDB.getArrayList());
+		//System.out.println(carDB.getArrayList());
 		
 		for(int i =0; i<carDB.getArrayList().size(); i++) {
 			

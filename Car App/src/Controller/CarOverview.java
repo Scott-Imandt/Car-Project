@@ -1,9 +1,11 @@
 package Controller;
 
-import java.io.IOException;
 
+import java.io.IOException;
 import Model.Job;
+import Model.CompletedJob;
 import Model.Main;
+import Model.PrintRecipt;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +24,14 @@ public class CarOverview extends Main{
 	
 	@FXML Label label_CarName;
 	@FXML TableView<Job> tableview_CarJobs;
+	@FXML TableView<CompletedJob> tableview_CompletedJobs;
+	
+	@FXML TableColumn<CompletedJob, String> col_CompletedJobName = new TableColumn<CompletedJob, String>("Job Name");
+	@FXML TableColumn<CompletedJob, String> col_CompletedDate = new TableColumn<CompletedJob, String>("Completed Date");
+	@FXML TableColumn<CompletedJob, String> col_CompletedMiles = new TableColumn<CompletedJob, String>("Completed Miles");
+	@FXML TableColumn<CompletedJob, String> col_ReplacementProductName = new TableColumn<CompletedJob, String>("Product Name");
+	@FXML TableColumn<CompletedJob, String> col_ReplacementProductLink = new TableColumn<CompletedJob, String>("Product Link");
+	
 	
 	@FXML TableColumn<Job, String> col_JobName = new TableColumn<Job, String>("Job Name");
 	@FXML TableColumn<Job, String> col_MilesInt = new TableColumn<Job, String>("Miles Interval");
@@ -44,10 +54,15 @@ public class CarOverview extends Main{
 	@FXML RadioMenuItem Radio_Needed;
 	@FXML RadioMenuItem Radio_JobType;
 	
+	@FXML Label label_CarDate;
+	@FXML Label label_CarMiles;
+	
 	Job SelectedJob = null;
+	CompletedJob selecetedCompleteJob = null;
 	
 	@FXML public void initialize() {
 		
+		// Jobs List
 		label_CarName.setText(selectedCar.getCarName());
 		col_JobName.setCellValueFactory(new PropertyValueFactory<Job, String>("jobName"));
 		col_MilesInt.setCellValueFactory(new PropertyValueFactory<Job, String>("mileagInterval"));
@@ -59,7 +74,7 @@ public class CarOverview extends Main{
 		col_RepairReason.setCellValueFactory(new PropertyValueFactory<Job, String>("repairReason"));
 		col_Maintenence.setCellValueFactory(new PropertyValueFactory<Job, String>("needMaintence"));
 		
-		// Default Items on list
+		// Default Job Items on list
 		tableview_CarJobs.getColumns().add(col_JobName);
 		Radio_JobName.setSelected(true);
 		tableview_CarJobs.getColumns().add(col_ExpectedDate);
@@ -70,9 +85,28 @@ public class CarOverview extends Main{
 		Radio_Needed.setSelected(true);
 		
 		
+		//Completed Jobs List
+		col_CompletedJobName.setCellValueFactory(new PropertyValueFactory<CompletedJob, String>("jobName"));
+		col_CompletedDate.setCellValueFactory(new PropertyValueFactory<CompletedJob, String>("completedDate"));
+		col_CompletedMiles.setCellValueFactory(new PropertyValueFactory<CompletedJob, String>("completedMileage"));
+		col_ReplacementProductName.setCellValueFactory(new PropertyValueFactory<CompletedJob, String>("replacementProductName"));
+		col_ReplacementProductLink.setCellValueFactory(new PropertyValueFactory<CompletedJob, String>("replacementProductLink"));
+		
+		//Default Completed Job Items on list
+		tableview_CompletedJobs.getColumns().add(col_CompletedJobName);
+		tableview_CompletedJobs.getColumns().add(col_CompletedDate);
+		tableview_CompletedJobs.getColumns().add(col_CompletedMiles);
+		tableview_CompletedJobs.getColumns().add(col_ReplacementProductName);
+		tableview_CompletedJobs.getColumns().add(col_ReplacementProductLink);
+		
+		tableview_CompletedJobs.autosize();
 		tableview_CarJobs.autosize();
-				
+		
 		tableview_CarJobs.getItems().addAll(selectedCar.getJobs());
+		tableview_CompletedJobs.getItems().addAll(selectedCar.getCompletedJobs());
+		
+		label_CarDate.setText(selectedCar.getLastUpdatedTime());
+		label_CarMiles.setText(String.valueOf(selectedCar.getCurrentMileage()));
 		
 		
 	}
@@ -207,6 +241,21 @@ public class CarOverview extends Main{
 		SelectedJob = null;
 	}
 	
+	@FXML public void DeleteCompletedJob(ActionEvent event) {
+		
+		selecetedCompleteJob = tableview_CompletedJobs.getSelectionModel().getSelectedItem();
+		
+		tableview_CompletedJobs.getItems().removeAll(selectedCar.getCompletedJobs());
+		
+		selectedCar.getCompletedJobs().remove(selecetedCompleteJob);
+		
+		tableview_CompletedJobs.getItems().addAll(selectedCar.getCompletedJobs());
+		
+		selecetedCompleteJob = null;
+		
+	}
+		
+	
 	@FXML public void CompletedJob(ActionEvent event) {
 		
 		SelectedJob = tableview_CarJobs.getSelectionModel().getSelectedItem();
@@ -226,6 +275,14 @@ public class CarOverview extends Main{
 			}
 			
 		}
+	}
+	
+	@FXML public void PrintCarJobs(ActionEvent event) {
+		
+		PrintRecipt temp = new PrintRecipt(selectedCar);
+		
+		temp.PrintToFile();
+		
 	}
 
 }
