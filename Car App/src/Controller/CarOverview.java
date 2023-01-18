@@ -4,6 +4,7 @@ package Controller;
 import java.io.IOException;
 import Model.Job;
 import Model.CompletedJob;
+import Model.GeneratePDF;
 import Model.Main;
 import Model.PrintRecipt;
 import javafx.event.ActionEvent;
@@ -260,12 +261,15 @@ public class CarOverview extends Main{
 		
 		SelectedJob = tableview_CarJobs.getSelectionModel().getSelectedItem();
 		
+		System.out.println(SelectedJob);
+		
 		if(SelectedJob != null) {
 			
 			try {
 				Parent CompleteJobView = FXMLLoader.load(getClass().getResource("../View/CompleteJob.fxml"));
 				Scene CompleteJobScene = new Scene(CompleteJobView);
 				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+				//window.setUserData(SelectedJob);
 				
 				window.setScene(CompleteJobScene);
 				window.show();
@@ -279,10 +283,14 @@ public class CarOverview extends Main{
 	
 	@FXML public void PrintCarJobs(ActionEvent event) {
 		
-		PrintRecipt temp = new PrintRecipt(selectedCar);
+		GeneratePDF temp = new GeneratePDF(selectedCar);	
+		temp.CreatePDFFileJobs();
 		
-		temp.PrintToFile();
-		
+	}
+	
+	@FXML public void PrintCompletedJobs(ActionEvent event) {
+		GeneratePDF temp = new GeneratePDF(selectedCar);
+		temp.CreatePDFFileCompletedJobs();
 	}
 
 }

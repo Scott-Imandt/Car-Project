@@ -175,17 +175,25 @@
                   </Label>
                </top>
                <right>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-               </right>
-               <left>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="5.0" layoutY="67.0" mnemonicParsing="false" onAction="#AddJobsView" text="Add Custom Completed Job">
+                        <Button layoutY="56.0" mnemonicParsing="false" onAction="#AddJobsView" text="Add Custom Completed Job">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="button_Delete1" layoutX="23.0" layoutY="137.0" mnemonicParsing="false" onAction="#DeleteJob" text="Delete Completed Job">
+                        <Button fx:id="button_Delete1" layoutX="18.0" layoutY="133.0" mnemonicParsing="false" onAction="#DeleteJob" text="Delete Completed Job">
+                           <font>
+                              <Font name="Autumn Regular" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </right>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="button_printCarJobs1" layoutX="22.0" layoutY="64.0" mnemonicParsing="false" onAction="#PrintCompletedJobs" text="Print Completed Jobs">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>

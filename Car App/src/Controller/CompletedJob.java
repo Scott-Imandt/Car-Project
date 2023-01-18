@@ -35,21 +35,25 @@ public class CompletedJob extends CarOverview{
 	@Override
 	@FXML public void initialize() {
 		
-		ArrayList<Job> tempList = selectedCar.getJobs();
-		for(int i = 0; i < tempList.size(); i++) {
+		
+		for(int i = 0; i < selectedCar.getJobs().size(); i++) {
 			
-			if(tempList.get(i).equals(SelectedJob)) {
+			System.out.println(SelectedJob);
+			
+			
+			if(selectedCar.getJobs().get(i) == (SelectedJob)) {
 				//if the selected job equals the array index
+				
 				
 				jobIndex = i;
 				break;
 			}			
 		}
 		
-		label_JobName.setText(tempList.get(jobIndex).getJobName());
-		label_MileInt.setText(String.valueOf(tempList.get(jobIndex).getMileagInterval()));
-		label_MonthInt.setText(String.valueOf(tempList.get(jobIndex).getMonthTimeInterval()));
-		label_RepairType.setText(tempList.get(jobIndex).getJobEnum());
+		label_JobName.setText(selectedCar.getJobs().get(jobIndex).getJobName());
+		label_MileInt.setText(String.valueOf(selectedCar.getJobs().get(jobIndex).getMileagInterval()));
+		label_MonthInt.setText(String.valueOf(selectedCar.getJobs().get(jobIndex).getMonthTimeInterval()));
+		label_RepairType.setText(selectedCar.getJobs().get(jobIndex).getJobEnum());
 		
 		
 		
