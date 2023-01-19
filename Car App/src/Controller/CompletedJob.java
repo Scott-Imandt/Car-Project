@@ -37,10 +37,7 @@ public class CompletedJob extends CarOverview{
 		
 		
 		for(int i = 0; i < selectedCar.getJobs().size(); i++) {
-			
-			System.out.println(SelectedJob);
-			
-			
+							
 			if(selectedCar.getJobs().get(i) == (SelectedJob)) {
 				//if the selected job equals the array index
 				
@@ -56,7 +53,9 @@ public class CompletedJob extends CarOverview{
 		label_RepairType.setText(selectedCar.getJobs().get(jobIndex).getJobEnum());
 		
 		
+		//Set SelectedJob Back to null
 		
+		SelectedJob = null;
 	}
 	
 	@FXML public void BackToJobs(ActionEvent event) {

@@ -58,8 +58,8 @@ public class CarOverview extends Main{
 	@FXML Label label_CarDate;
 	@FXML Label label_CarMiles;
 	
-	Job SelectedJob = null;
-	CompletedJob selecetedCompleteJob = null;
+	public static Job SelectedJob = null;
+	public  CompletedJob selecetedCompleteJob = null;
 	
 	@FXML public void initialize() {
 		
@@ -269,7 +269,6 @@ public class CarOverview extends Main{
 				Parent CompleteJobView = FXMLLoader.load(getClass().getResource("../View/CompleteJob.fxml"));
 				Scene CompleteJobScene = new Scene(CompleteJobView);
 				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-				//window.setUserData(SelectedJob);
 				
 				window.setScene(CompleteJobScene);
 				window.show();
@@ -280,6 +279,52 @@ public class CarOverview extends Main{
 			
 		}
 	}
+	
+	@FXML public void UpdateCar(ActionEvent event) {
+		try {
+			Parent UpdateCarView = FXMLLoader.load(getClass().getResource("../View/UpdateCar.fxml"));
+			Scene UpdateCarScene = new Scene(UpdateCarView);
+			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();		
+			
+			window.setScene(UpdateCarScene);
+			window.show();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML public void BackToDashboard(ActionEvent event) {
+		try {
+			Parent DashBoardView = FXMLLoader.load(getClass().getResource("../View/DashBoard.fxml"));
+			Scene DashBoardScene = new Scene(DashBoardView);
+			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();		
+			
+			window.setScene(DashBoardScene);
+			window.show();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	@FXML public void AddCustomCompletedJob(ActionEvent event) {
+		
+		try {
+			Parent DashBoardView = FXMLLoader.load(getClass().getResource("../View/CustomCompleteJob.fxml"));
+			Scene DashBoardScene = new Scene(DashBoardView);
+			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();		
+			
+			window.setScene(DashBoardScene);
+			window.show();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 	@FXML public void PrintCarJobs(ActionEvent event) {
 		

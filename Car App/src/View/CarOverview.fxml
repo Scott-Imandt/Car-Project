@@ -91,12 +91,12 @@
                <left>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="39.0" layoutY="248.0" mnemonicParsing="false" text="Update Car Info">
+                        <Button layoutX="39.0" layoutY="196.0" mnemonicParsing="false" onAction="#UpdateCar" text="Update Car Info">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
                         </Button>
-                        <VBox alignment="CENTER" layoutX="19.0" layoutY="25.0" prefHeight="200.0" prefWidth="162.0">
+                        <VBox alignment="CENTER" layoutX="19.0" layoutY="25.0" prefHeight="145.0" prefWidth="162.0">
                            <children>
                               <Label text="Last Update Date:">
                                  <font>
@@ -111,7 +111,7 @@
                                     <Font name="Autumn Regular" size="30.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="47.0" prefWidth="28.0" text="Label" visible="false" />
+                              <Label prefHeight="17.0" prefWidth="28.0" text="Label" visible="false" />
                               <Label text="Current MIleage:">
                                  <font>
                                     <Font name="Autumn Regular" size="20.0" />
@@ -130,7 +130,12 @@
                               <Insets />
                            </opaqueInsets>
                         </VBox>
-                        <Button fx:id="button_printCarJobs" layoutX="43.0" layoutY="325.0" mnemonicParsing="false" onAction="#PrintCarJobs" text="Print Car Jobs">
+                        <Button fx:id="button_printCarJobs" layoutX="23.0" layoutY="276.0" mnemonicParsing="false" onAction="#PrintCarJobs" text="Create Car Jobs PDF">
+                           <font>
+                              <Font name="Autumn Regular" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="27.0" layoutY="354.0" mnemonicParsing="false" onAction="#BackToDashboard" text="Back To Dashboard">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
@@ -177,12 +182,12 @@
                <right>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutY="56.0" mnemonicParsing="false" onAction="#AddJobsView" text="Add Custom Completed Job">
+                        <Button layoutY="56.0" mnemonicParsing="false" onAction="#AddCustomCompletedJob" text="Add Custom Completed Job">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="button_Delete1" layoutX="18.0" layoutY="133.0" mnemonicParsing="false" onAction="#DeleteJob" text="Delete Completed Job">
+                        <Button fx:id="button_Delete1" layoutX="18.0" layoutY="133.0" mnemonicParsing="false" onAction="#DeleteCompletedJob" text="Delete Completed Job">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
@@ -193,7 +198,7 @@
                <left>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="button_printCarJobs1" layoutX="22.0" layoutY="64.0" mnemonicParsing="false" onAction="#PrintCompletedJobs" text="Print Completed Jobs">
+                        <Button fx:id="button_printCarJobs1" layoutX="6.0" layoutY="66.0" mnemonicParsing="false" onAction="#PrintCompletedJobs" prefWidth="201.0" text="Create Completed Jobs PDF">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
