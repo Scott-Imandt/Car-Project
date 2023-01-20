@@ -73,7 +73,8 @@ public class CreateCar extends Main{
 			Parent dashboardView = FXMLLoader.load(getClass().getResource("../View/DashBoard.fxml"));
 			Scene dashboardScene = new Scene(dashboardView);
 			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-			
+			dashboardScene.getStylesheets().add(getClass().getResource("/View/DashBoard.css").toExternalForm());
+
 			window.setScene(dashboardScene);
 			window.show();
 			
