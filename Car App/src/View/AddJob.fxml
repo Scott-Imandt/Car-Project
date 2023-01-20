@@ -18,7 +18,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddJob">
    <center>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="607.0" BorderPane.alignment="CENTER">
@@ -122,12 +121,7 @@
    <right>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="27.0" layoutY="68.0" text="Suggested">
-               <font>
-                  <Font name="Autumn Regular" size="30.0" />
-               </font>
-            </Label>
-            <MenuButton layoutX="-1.0" layoutY="152.0" mnemonicParsing="false" text="Suggested Jobs">
+            <MenuButton fx:id="MenuButton_DefaultJobs" layoutX="8.0" layoutY="60.0" mnemonicParsing="false" text="Suggested Jobs">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />

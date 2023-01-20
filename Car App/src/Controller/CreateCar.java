@@ -3,6 +3,7 @@ package Controller;
 import java.io.IOException;
 
 import Model.Main;
+import Model.Save_File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,6 +45,10 @@ public class CreateCar extends Main{
 		label_ErrorMessage.setVisible(false);
 		
 		carDB.createCar(carName, carMiles);
+		
+		//Save to DAT file
+		sf.setStoredData(carDB);
+		Save_File.saveData(sf);
 		
 		try {
 			Parent dashboardView = FXMLLoader.load(getClass().getResource("../View/DashBoard.fxml"));

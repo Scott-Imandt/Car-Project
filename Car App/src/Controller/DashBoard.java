@@ -98,31 +98,214 @@ public class DashBoard extends Main{
 	
 	// selectors for cars NEED TO CHANGE
 	
-	@FXML public void CarSelected(MouseEvent event) {
+	@FXML public void CarSelected0(MouseEvent event) {
 		
 		if(Label_CarName1.isVisible()) {
 			
 			selectedCar = carDB.getCar(0);
-			
-			
+					
 			// go to car Screens
 			try {
 				Parent carOverviewView = FXMLLoader.load(getClass().getResource("../View/CarOverview.fxml"));
 				Scene carOverviewScene = new Scene(carOverviewView);
 				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-				
+				window.setResizable(true);
 				window.setScene(carOverviewScene);
 				window.show();
 				
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
-			
+			}		
 			
 		}
 		
-		return;
+		return;	
+	}
+	
+	@FXML public void CarSelected1(MouseEvent event) {
 		
+		if(Label_CarName1.isVisible()) {
+			
+			selectedCar = carDB.getCar(1);
+					
+			// go to car Screens
+			try {
+				Parent carOverviewView = FXMLLoader.load(getClass().getResource("../View/CarOverview.fxml"));
+				Scene carOverviewScene = new Scene(carOverviewView);
+				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+				window.setResizable(true);
+				window.setScene(carOverviewScene);
+				window.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
+			
+		}
+		
+		return;	
+	}
+	@FXML public void CarSelected2(MouseEvent event) {
+		
+		if(Label_CarName1.isVisible()) {
+			
+			selectedCar = carDB.getCar(2);
+					
+			// go to car Screens
+			try {
+				Parent carOverviewView = FXMLLoader.load(getClass().getResource("../View/CarOverview.fxml"));
+				Scene carOverviewScene = new Scene(carOverviewView);
+				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+				window.setResizable(true);
+				window.setScene(carOverviewScene);
+				window.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
+			
+		}
+		
+		return;	
+	}
+	@FXML public void CarSelected3(MouseEvent event) {
+		
+		if(Label_CarName1.isVisible()) {
+			
+			selectedCar = carDB.getCar(3);
+					
+			// go to car Screens
+			try {
+				Parent carOverviewView = FXMLLoader.load(getClass().getResource("../View/CarOverview.fxml"));
+				Scene carOverviewScene = new Scene(carOverviewView);
+				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+				window.setResizable(true);
+				window.setScene(carOverviewScene);
+				window.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
+			
+		}
+		
+		return;	
+	}
+	@FXML public void CarSelected4(MouseEvent event) {
+		
+		if(Label_CarName1.isVisible()) {
+			
+			selectedCar = carDB.getCar(4);
+					
+			// go to car Screens
+			try {
+				Parent carOverviewView = FXMLLoader.load(getClass().getResource("../View/CarOverview.fxml"));
+				Scene carOverviewScene = new Scene(carOverviewView);
+				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+				window.setResizable(true);
+				window.setScene(carOverviewScene);
+				window.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
+			
+		}
+		
+		return;	
+	}
+	@FXML public void CarSelected5(MouseEvent event) {
+		
+		if(Label_CarName1.isVisible()) {
+			
+			selectedCar = carDB.getCar(5);
+					
+			// go to car Screens
+			try {
+				Parent carOverviewView = FXMLLoader.load(getClass().getResource("../View/CarOverview.fxml"));
+				Scene carOverviewScene = new Scene(carOverviewView);
+				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+				window.setResizable(true);
+				window.setScene(carOverviewScene);
+				window.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
+			
+		}
+		
+		return;	
+	}
+	@FXML public void CarSelected6(MouseEvent event) {
+		
+		if(Label_CarName1.isVisible()) {
+			
+			selectedCar = carDB.getCar(6);
+					
+			// go to car Screens
+			try {
+				Parent carOverviewView = FXMLLoader.load(getClass().getResource("../View/CarOverview.fxml"));
+				Scene carOverviewScene = new Scene(carOverviewView);
+				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+				window.setResizable(true);
+				window.setScene(carOverviewScene);
+				window.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
+			
+		}
+		
+		return;	
+	}
+	@FXML public void CarSelected7(MouseEvent event) {
+		
+		if(Label_CarName1.isVisible()) {
+			
+			selectedCar = carDB.getCar(7);
+					
+			// go to car Screens
+			try {
+				Parent carOverviewView = FXMLLoader.load(getClass().getResource("../View/CarOverview.fxml"));
+				Scene carOverviewScene = new Scene(carOverviewView);
+				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+				window.setResizable(true);
+				window.setScene(carOverviewScene);
+				window.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
+			
+		}
+		
+		return;	
+	}
+	
+	@FXML public void CarSelected8(MouseEvent event) {
+		
+		if(Label_CarName1.isVisible()) {
+			
+			selectedCar = carDB.getCar(8);
+					
+			// go to car Screens
+			try {
+				Parent carOverviewView = FXMLLoader.load(getClass().getResource("../View/CarOverview.fxml"));
+				Scene carOverviewScene = new Scene(carOverviewView);
+				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+				window.setResizable(true);
+				window.setScene(carOverviewScene);
+				window.show();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
+			
+		}
+		
+		return;	
 	}
 	
 	

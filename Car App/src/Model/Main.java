@@ -16,10 +16,7 @@ public class Main extends Application{
 		
 		sf = Save_File.loadData();
 		carDB = sf.getStoredData();
-		
-		//System.out.println(carDB.getCar(0).getJobs());
-		//System.out.println(carDB.getCar(0).getCompletedJobs());
-		
+				
 		launch(args);
 	}
 
@@ -28,12 +25,12 @@ public class Main extends Application{
 		// TODO Auto-generated method stub
 		
 		Parent root = FXMLLoader.load(getClass().getResource("/View/DashBoard.fxml"));
-		
-		
 		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("/View/DashBoard.css").toExternalForm());
 		
 		stage.setTitle("Car Tracker V0.5.0");
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show(); // shows the window and start the app
 	
 	}

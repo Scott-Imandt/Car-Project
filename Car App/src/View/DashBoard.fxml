@@ -13,8 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashBoard">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashBoard">
    <center>
       <AnchorPane prefHeight="475.0" prefWidth="650.0" BorderPane.alignment="CENTER">
          <children>
@@ -32,7 +31,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <AnchorPane onMouseClicked="#CarSelected" prefHeight="200.0" prefWidth="200.0">
+                        <AnchorPane fx:id="Pane" onMouseClicked="#CarSelected0" prefHeight="200.0" prefWidth="200.0">
                            <children>
                               <Label fx:id="Label_CarName1" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="38.0" prefHeight="51.0" prefWidth="398.0" text="Car Name" visible="false">
                                  <font>
@@ -46,7 +45,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="190.0" prefWidth="399.0" GridPane.columnIndex="1">
+                        <AnchorPane fx:id="Pane" onMouseClicked="#CarSelected1" prefHeight="190.0" prefWidth="399.0" GridPane.columnIndex="1">
                            <children>
                               <Label fx:id="Label_CarName11" alignment="CENTER" contentDisplay="CENTER" layoutY="38.0" prefHeight="51.0" prefWidth="399.0" text="Car Name" textAlignment="CENTER" visible="false">
                                  <font>
@@ -60,7 +59,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="165.0" prefWidth="268.0" GridPane.columnIndex="2">
+                        <AnchorPane fx:id="Pane" onMouseClicked="#CarSelected2" prefHeight="165.0" prefWidth="268.0" GridPane.columnIndex="2">
                            <children>
                               <Label fx:id="Label_CarName12" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="38.0" prefHeight="51.0" prefWidth="396.0" text="Car Name" textAlignment="CENTER" visible="false">
                                  <font>
@@ -74,7 +73,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                        <AnchorPane onMouseClicked="#CarSelected3" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
                               <Label fx:id="Label_CarName13" alignment="CENTER" contentDisplay="CENTER" layoutY="38.0" prefHeight="51.0" prefWidth="402.0" text="Car Name" textAlignment="CENTER" visible="false">
                                  <font>
@@ -88,7 +87,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <AnchorPane onMouseClicked="#CarSelected4" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
                               <Label fx:id="Label_CarName15" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="38.0" prefHeight="51.0" prefWidth="400.0" text="Car Name" textAlignment="CENTER" visible="false">
                                  <font>
@@ -102,7 +101,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <AnchorPane onMouseClicked="#CarSelected5" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <children>
                               <Label fx:id="Label_CarName16" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="38.0" prefHeight="51.0" prefWidth="398.0" text="Car Name" textAlignment="CENTER" visible="false">
                                  <font>
@@ -116,7 +115,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                        <AnchorPane onMouseClicked="#CarSelected6" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                            <children>
                               <Label fx:id="Label_CarName17" alignment="CENTER" contentDisplay="CENTER" layoutY="38.0" prefHeight="51.0" prefWidth="400.0" text="Car Name" textAlignment="CENTER" visible="false">
                                  <font>
@@ -130,7 +129,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <AnchorPane onMouseClicked="#CarSelected7" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
                               <Label fx:id="Label_CarName18" alignment="CENTER" contentDisplay="CENTER" layoutY="38.0" prefHeight="51.0" prefWidth="400.0" text="Car Name" textAlignment="CENTER" visible="false">
                                  <font>
@@ -144,7 +143,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <AnchorPane onMouseClicked="#CarSelected8" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <children>
                               <Label fx:id="Label_CarName19" alignment="CENTER" contentDisplay="CENTER" layoutX="-3.0" layoutY="38.0" prefHeight="51.0" prefWidth="401.0" text="Car Name" textAlignment="CENTER" visible="false">
                                  <font>
@@ -166,9 +165,9 @@
       </AnchorPane>
    </center>
    <top>
-      <AnchorPane prefHeight="180.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="180.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="421.0" layoutY="44.0" text="Select A Car" textAlignment="CENTER" underline="true">
+            <Label fx:id="TitleLabel" layoutX="421.0" layoutY="44.0" text="Select A Car" textAlignment="CENTER" underline="true">
                <font>
                   <Font name="Autumn Regular" size="72.0" />
                </font>

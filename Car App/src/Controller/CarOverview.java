@@ -2,17 +2,25 @@ package Controller;
 
 
 import java.io.IOException;
+import java.util.Optional;
+
 import Model.Job;
+import Model.Car;
 import Model.CompletedJob;
 import Model.GeneratePDF;
 import Model.Main;
 import Model.PrintRecipt;
+import Model.Save_File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TableColumn;
@@ -217,7 +225,7 @@ public class CarOverview extends Main{
 			Parent AddJobView = FXMLLoader.load(getClass().getResource("../View/AddJob.fxml"));
 			Scene AddJobScene = new Scene(AddJobView);
 			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-			
+			window.setResizable(false);
 			window.setScene(AddJobScene);
 			window.show();
 			
@@ -240,6 +248,10 @@ public class CarOverview extends Main{
 		tableview_CarJobs.getItems().addAll(selectedCar.getJobs());
 		
 		SelectedJob = null;
+		
+		//Save to DAT file
+		sf.setStoredData(carDB);
+		Save_File.saveData(sf);
 	}
 	
 	@FXML public void DeleteCompletedJob(ActionEvent event) {
@@ -254,6 +266,9 @@ public class CarOverview extends Main{
 		
 		selecetedCompleteJob = null;
 		
+		//Save to DAT file
+		sf.setStoredData(carDB);
+		Save_File.saveData(sf);
 	}
 		
 	
@@ -269,7 +284,7 @@ public class CarOverview extends Main{
 				Parent CompleteJobView = FXMLLoader.load(getClass().getResource("../View/CompleteJob.fxml"));
 				Scene CompleteJobScene = new Scene(CompleteJobView);
 				Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-				
+				window.setResizable(false);
 				window.setScene(CompleteJobScene);
 				window.show();
 				
@@ -278,6 +293,11 @@ public class CarOverview extends Main{
 			}
 			
 		}
+		else {
+			Alert a = new Alert(AlertType.INFORMATION);
+			a.setContentText("Please Select a Car from the Table View First");
+			a.show();
+		}
 	}
 	
 	@FXML public void UpdateCar(ActionEvent event) {
@@ -285,7 +305,7 @@ public class CarOverview extends Main{
 			Parent UpdateCarView = FXMLLoader.load(getClass().getResource("../View/UpdateCar.fxml"));
 			Scene UpdateCarScene = new Scene(UpdateCarView);
 			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();		
-			
+			window.setResizable(false);
 			window.setScene(UpdateCarScene);
 			window.show();
 			
@@ -297,9 +317,10 @@ public class CarOverview extends Main{
 	@FXML public void BackToDashboard(ActionEvent event) {
 		try {
 			Parent DashBoardView = FXMLLoader.load(getClass().getResource("../View/DashBoard.fxml"));
-			Scene DashBoardScene = new Scene(DashBoardView);
+			Scene  DashBoardScene= new Scene(DashBoardView);
+			DashBoardScene.getStylesheets().add(getClass().getResource("/View/DashBoard.css").toExternalForm());
 			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();		
-			
+			window.setResizable(false);
 			window.setScene(DashBoardScene);
 			window.show();
 			
@@ -312,11 +333,11 @@ public class CarOverview extends Main{
 	@FXML public void AddCustomCompletedJob(ActionEvent event) {
 		
 		try {
-			Parent DashBoardView = FXMLLoader.load(getClass().getResource("../View/CustomCompleteJob.fxml"));
-			Scene DashBoardScene = new Scene(DashBoardView);
+			Parent CustomCompleteJobView = FXMLLoader.load(getClass().getResource("../View/CustomCompleteJob.fxml"));
+			Scene CustomCompleteJobScene = new Scene(CustomCompleteJobView);
 			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();		
-			
-			window.setScene(DashBoardScene);
+			window.setResizable(false);
+			window.setScene(CustomCompleteJobScene);
 			window.show();
 			
 		} catch (IOException e) {
@@ -324,18 +345,70 @@ public class CarOverview extends Main{
 		}
 	}
 	
+	@FXML public void DeleteCar(ActionEvent event) {
+		
+		for(int i=0; i<carDB.getArrayList().size(); i++) {
+			if(selectedCar.equals(carDB.getCar(i))) {
+							
+				Alert a = new Alert(AlertType.CONFIRMATION);
+				a.setHeaderText("Car you sure you want to delete Car: " + carDB.getCar(i).getCarName());
+				Optional<ButtonType> option = a.showAndWait();
+
+				if (option.get() == null) {break;}
+				else if (option.get() == ButtonType.OK) {
+					carDB.removeCar(i);
+					
+					//Save to DAT file
+					sf.setStoredData(carDB);
+					Save_File.saveData(sf);	
+					this.BackToDashboard(event);
+				}
+				else if (option.get() == ButtonType.CANCEL) {break;}
+				else {break;}
+
+			}
+		}
+	
+	}
+	
 	
 	
 	@FXML public void PrintCarJobs(ActionEvent event) {
 		
-		GeneratePDF temp = new GeneratePDF(selectedCar);	
-		temp.CreatePDFFileJobs();
+		try {
+			GeneratePDF temp = new GeneratePDF(selectedCar);	
+			temp.CreatePDFFileJobs();
+			Alert a = new Alert(AlertType.INFORMATION);
+			a.setContentText("PDF has been created and saved to the data folder");
+			a.show();
+		}
+		catch(Exception e) {
+			Alert a = new Alert(AlertType.ERROR);
+			a.setContentText("Unable to generate pdf file Error:" + e);
+			a.show();
+			System.out.println(e);
+		}
+		
 		
 	}
 	
 	@FXML public void PrintCompletedJobs(ActionEvent event) {
-		GeneratePDF temp = new GeneratePDF(selectedCar);
-		temp.CreatePDFFileCompletedJobs();
+		
+		try {
+			GeneratePDF temp = new GeneratePDF(selectedCar);
+			temp.CreatePDFFileCompletedJobs();
+			Alert a = new Alert(AlertType.INFORMATION);
+			a.setContentText("PDF has been created and saved to the data folder");
+			a.show();
+		}
+		catch(Exception e){
+			Alert a = new Alert(AlertType.ERROR);
+			a.setContentText("Unable to generate pdf file Error:" + e);
+			a.show();
+			System.out.println(e);
+		}
+		
+		
 	}
 
 }

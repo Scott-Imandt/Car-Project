@@ -31,6 +31,8 @@ public class Job implements Serializable{
 	}
 	
 	public LocalDate calcExpectedDate() {
+		if(this.LastPreformedDate == null) return null;
+		
 		return LastPreformedDate.plusMonths(monthTimeInterval);
 	}
 	
@@ -52,6 +54,11 @@ public class Job implements Serializable{
 		if(newMileage - lastPreformedMiles >= mileagInterval) {
 			repairReason = RepairReason.MILES; // set repair reason to MILES
 			needMaintenance = true; // sets repair requirement to true
+		}
+		
+		if(monthTimeInterval == 0) {
+			//If Month Time Interval is not required
+			return;
 		}
 		
 		// Calendar time until needed Maintenance
@@ -100,6 +107,10 @@ public class Job implements Serializable{
 	
 	public String getJobEnum() {
 		return jobEnum.toString();
+	}
+	
+	public RepairType getJobEnumType() {
+		return jobEnum;
 	}
 	
 	public String getRepairReason() {

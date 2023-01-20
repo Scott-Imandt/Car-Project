@@ -70,17 +70,22 @@
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
                         </MenuButton>
-                        <Button layoutX="63.0" layoutY="119.0" mnemonicParsing="false" onAction="#AddJobsView" text="Add Job">
+                        <Button layoutX="64.0" layoutY="108.0" mnemonicParsing="false" onAction="#AddJobsView" text="Add Job">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="button_Delete" layoutX="55.0" layoutY="202.0" mnemonicParsing="false" onAction="#DeleteJob" text="Delete Job">
+                        <Button fx:id="button_Delete" layoutX="56.0" layoutY="189.0" mnemonicParsing="false" onAction="#DeleteJob" text="Delete Job">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="button_Completed" layoutX="42.0" layoutY="284.0" mnemonicParsing="false" onAction="#CompletedJob" text="Completed Job">
+                        <Button fx:id="button_Completed" layoutX="43.0" layoutY="265.0" mnemonicParsing="false" onAction="#CompletedJob" text="Completed Job">
+                           <font>
+                              <Font name="Autumn Regular" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button_printCarJobs" layoutX="23.0" layoutY="340.0" mnemonicParsing="false" onAction="#PrintCarJobs" text="Create Car Jobs PDF">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
@@ -130,12 +135,12 @@
                               <Insets />
                            </opaqueInsets>
                         </VBox>
-                        <Button fx:id="button_printCarJobs" layoutX="23.0" layoutY="276.0" mnemonicParsing="false" onAction="#PrintCarJobs" text="Create Car Jobs PDF">
+                        <Button layoutX="27.0" layoutY="270.0" mnemonicParsing="false" onAction="#BackToDashboard" text="Back To Dashboard">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
                         </Button>
-                        <Button layoutX="27.0" layoutY="354.0" mnemonicParsing="false" onAction="#BackToDashboard" text="Back To Dashboard">
+                        <Button layoutX="56.0" layoutY="340.0" mnemonicParsing="false" onAction="#DeleteCar" text="Delete Car">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>

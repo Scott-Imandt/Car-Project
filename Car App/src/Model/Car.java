@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.TreeMap;
 
 
@@ -59,23 +60,26 @@ public class Car implements Serializable{
 		this.jobs.get(jobIndex).jobCompleted(lastPreformed, lastPreformedMiles);
 		CompletedJob cj = new CompletedJob(this.jobs.get(jobIndex).getJobName(),lastPreformed, lastPreformedMiles);
 		cJobs.add(cj);
+		cJobs.sort(Comparator.reverseOrder());
 	}
 	
 	public void jobCompleted(int jobIndex, LocalDate lastPreformed, int lastPreformedMiles, String productName, String productLink) {
 		this.jobs.get(jobIndex).jobCompleted(lastPreformed, lastPreformedMiles);
 		CompletedJob cj = new CompletedJob(this.jobs.get(jobIndex).getJobName(),lastPreformed, lastPreformedMiles, productName, productLink);
 		cJobs.add(cj);
+		cJobs.sort(Comparator.reverseOrder());
 	}
 	
 	public void jobCompleted(String jobName, LocalDate completedDate, int completedMileage) {
 		CompletedJob temp = new CompletedJob(jobName, completedDate, completedMileage);
 		cJobs.add(temp);
-		
+		cJobs.sort(Comparator.reverseOrder());
 	}
 	
 	public void jobCompleted(String jobName, LocalDate completedDate, int completedMileage, String replacementProductName, String replacementProductLink) {
 		CompletedJob temp = new CompletedJob(jobName, completedDate, completedMileage, replacementProductName, replacementProductLink);
 		cJobs.add(temp);
+		cJobs.sort(Comparator.reverseOrder());
 	}
 	
 	
@@ -104,6 +108,7 @@ public class Car implements Serializable{
 	}
 	
 	public ArrayList<CompletedJob> getCompletedJobs() {
+		cJobs.sort(Comparator.reverseOrder());
 		return cJobs;
 	}
 	

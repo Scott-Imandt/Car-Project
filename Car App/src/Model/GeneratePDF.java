@@ -4,11 +4,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.html.WebColors;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -66,6 +69,7 @@ public class GeneratePDF {
 		table.addCell(c1);
 		
 		table.setHeaderRows(1);
+		
 		
 		for(CompletedJob job : selectedCar.getCompletedJobs()) {
 			table.addCell(job.getJobName());
@@ -139,7 +143,51 @@ public class GeneratePDF {
 		
 		table.setHeaderRows(1);
 		
+		BaseColor myColor = WebColors.getRGBColor("#ff8080");
+		
 		for(Job job : selectedCar.getJobs()) {
+			if(!(job.getRepairReason().equals("NO_REPAIR"))) {
+				PdfPCell cell;
+				
+				cell = new PdfPCell(new Phrase(job.getJobName()));
+				cell.setBackgroundColor(myColor);
+				table.addCell(cell);
+				
+				cell = new PdfPCell(new Phrase(String.valueOf(job.getMileagInterval())));
+				cell.setBackgroundColor(myColor);
+				table.addCell(cell);
+				
+				cell = new PdfPCell(new Phrase(String.valueOf(job.getMonthTimeInterval())));
+				cell.setBackgroundColor(myColor);
+				table.addCell(cell);
+				
+				cell = new PdfPCell(new Phrase(job.getLastPreformedDate()));
+				cell.setBackgroundColor(myColor);
+				table.addCell(cell);
+				
+				cell = new PdfPCell(new Phrase(job.getExpectedDatetoPreform()));
+				cell.setBackgroundColor(myColor);
+				table.addCell(cell);
+				
+				cell = new PdfPCell(new Phrase(job.getLastPreformedMiles()));
+				cell.setBackgroundColor(myColor);
+				table.addCell(cell);
+				
+				cell = new PdfPCell(new Phrase(job.getJobEnum()));
+				cell.setBackgroundColor(myColor);
+				table.addCell(cell);
+				
+				cell = new PdfPCell(new Phrase(job.getRepairReason()));
+				cell.setBackgroundColor(myColor);
+				table.addCell(cell);
+				
+				cell = new PdfPCell(new Phrase(job.getNeedMaintence()));
+				cell.setBackgroundColor(myColor);
+				table.addCell(cell);
+				
+			}
+			else {
+						
 			table.addCell(job.getJobName());
 			table.addCell(String.valueOf(job.getMileagInterval()));
 			table.addCell(String.valueOf(job.getMonthTimeInterval()));
@@ -149,6 +197,7 @@ public class GeneratePDF {
 			table.addCell(job.getJobEnum());
 			table.addCell(job.getRepairReason());
 			table.addCell(job.getNeedMaintence());
+			}
 		}
 		
 		try {
