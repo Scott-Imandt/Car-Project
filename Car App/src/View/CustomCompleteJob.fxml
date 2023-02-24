@@ -20,8 +20,8 @@
    <center>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="511.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="335.0" minWidth="10.0" prefWidth="219.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="292.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.0" minWidth="10.0" prefWidth="253.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="258.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -37,7 +37,7 @@
                   <Font name="Autumn Regular" size="26.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="231.0" text="Completed Mileage: " GridPane.rowIndex="1">
+            <Label alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="251.0" text="Completed Mileage: " GridPane.rowIndex="1">
                <font>
                   <Font name="Autumn Regular" size="26.0" />
                </font>
@@ -47,7 +47,7 @@
                   <Font name="Autumn Regular" size="26.0" />
                </font>
             </Label>
-            <TextField fx:id="textfield_CompletedMiles" promptText="Mileage When Job was Completed" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="textfield_CompletedMiles" promptText="Mileage" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Autumn Regular" size="20.0" />
                </font>

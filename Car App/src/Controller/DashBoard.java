@@ -83,7 +83,7 @@ public class DashBoard extends Main{
 	@FXML public void switchToCreateCarScene(ActionEvent event) {
 	
 		try {
-			Parent createCarView = FXMLLoader.load(getClass().getResource("../View/CreateCar.fxml"));
+			Parent createCarView = FXMLLoader.load(getClass().getResource("/View/CreateCar.fxml"));
 			Scene createCarScene = new Scene(createCarView);
 			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 			

@@ -203,7 +203,7 @@
                <left>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="button_printCarJobs1" layoutX="6.0" layoutY="66.0" mnemonicParsing="false" onAction="#PrintCompletedJobs" prefWidth="201.0" text="Create Completed Jobs PDF">
+                        <Button fx:id="button_printCarJobs1" layoutX="38.0" layoutY="68.0" mnemonicParsing="false" onAction="#PrintCompletedJobs" prefHeight="35.0" prefWidth="124.0" text="Create PDF">
                            <font>
                               <Font name="Autumn Regular" size="16.0" />
                            </font>
