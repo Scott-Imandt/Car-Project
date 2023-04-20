@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CustomCompletedJob">
+   <center>
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="511.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.0" minWidth="10.0" prefWidth="253.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="258.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="331.0" text="Job Name: ">
+               <font>
+                  <Font name="Autumn Regular" size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="251.0" text="Completed Mileage: " GridPane.rowIndex="1">
+               <font>
+                  <Font name="Autumn Regular" size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="331.0" text="Completed Date: " GridPane.rowIndex="2">
+               <font>
+                  <Font name="Autumn Regular" size="26.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textfield_CompletedMiles" promptText="Mileage" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Autumn Regular" size="20.0" />
+               </font>
+            </TextField>
+            <DatePicker fx:id="datepicker_CompletedDate" prefHeight="31.0" prefWidth="384.0" promptText="MM/DD/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="Label_Error" alignment="CENTER" prefHeight="17.0" prefWidth="236.0" text="Please Check Data Format" textAlignment="CENTER" textFill="RED" visible="false" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Autumn Regular" size="20.0" />
+               </font>
+            </Label>
+            <AnchorPane prefHeight="83.0" prefWidth="354.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="331.0" text="Product Name: " GridPane.rowIndex="3">
+               <font>
+                  <Font name="Autumn Regular" size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="331.0" text="Product Link: " GridPane.rowIndex="4">
+               <font>
+                  <Font name="Autumn Regular" size="26.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textfield_ProductName" promptText="Can Be Left Empty" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Autumn Regular" size="20.0" />
+               </font>
+            </TextField>
+            <TextArea fx:id="textarea_ProductLink" prefHeight="200.0" prefWidth="200.0" promptText="Can Be Left Empty" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Autumn Regular" size="12.0" />
+               </font>
+            </TextArea>
+            <TextField fx:id="textfield_CustomName" promptText="Name for Custom Job" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Autumn Regular" size="20.0" />
+               </font>
+            </TextField>
+         </children>
+      </GridPane>
+   </center>
+   <left>
+      <AnchorPane prefHeight="623.0" prefWidth="221.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="button_BackToJobs" layoutX="50.0" layoutY="77.0" mnemonicParsing="false" onAction="#BackToJobs" text="Back To Jobs">
+               <font>
+                  <Font name="Autumn Regular" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="button_Submit" alignment="CENTER" layoutX="45.0" layoutY="71.0" mnemonicParsing="false" onAction="#SubmitJob" text="Submit">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="Autumn Regular" size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </right>
+   <top>
+      <AnchorPane prefHeight="177.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="label_CarName" layoutX="281.0" layoutY="43.0" text="Custom Complete Job" textAlignment="CENTER" underline="true">
+               <font>
+                  <Font name="Autumn Regular" size="72.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color green="1.0" blue="0.01904761977493763" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

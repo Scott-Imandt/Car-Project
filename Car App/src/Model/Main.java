@@ -1,10 +1,14 @@
 package Model;
 
-import java.time.LocalDate;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class Main {
+public class Main extends Application{
 	
-	public static Car_Storage carDB = null;
+	protected static Car_Storage carDB = null;
 	public static Car selectedCar = null;
 	public static Save_File sf; 
 
@@ -12,33 +16,28 @@ public class Main {
 		
 		sf = Save_File.loadData();
 		carDB = sf.getStoredData();
-		
-		selectedCar = carDB.getCar(0);
 				
-		LocalDate ld1 = LocalDate.of(2020, 1, 16);
-		//LocalDate ld2 = LocalDate.of(2020, 2, 16);
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage stage) throws Exception {
+		// TODO Auto-generated method stub
 		
-		//selectedCar.addJob("Spark Plugs", 75000, 120, ld1, 0, RepairType.REPLACE);
+		Parent root = FXMLLoader.load(getClass().getResource("/View/DashBoard.fxml"));
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("/View/DashBoard.css").toExternalForm());
 		
-		//selectedCar.UpdateJobs(LocalDate.now(), 90000);
-		
-		//selectedCar.jobCompleted(1, ld1, 90000);
-		
-		//selectedCar.UpdateJobs(LocalDate.now(), 90000);
-		
-		selectedCar.jobCompleted(0, ld1, 81000);
+		stage.setTitle("Car Tracker V0.5.0");
+		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.show(); // shows the window and start the app
 	
- 		PrintRecipt Pr = new PrintRecipt(selectedCar);
- 		
- 		Pr.PrintToFile();
-
-		//carDB.createCar("Mazda 6", 84000);
-		//selectedCar = carDB.getCar(0);
-
-		//selectedCar.addJob("Oil Change", 10000, 12, ld1, 70000, RepairType.REPLACE);
-		//selectedCar.addJob("Brake Fluid", 60000, 36, ld1, 80000, RepairType.REPLACE);		
-				
-		
+	}
+	
+	
+	@Override
+	public void stop() {
 		sf.setStoredData(carDB);
 		Save_File.saveData(sf);
 	}
